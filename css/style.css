@@ -1,0 +1,22 @@
+body {
+    background-color: #e96994;
+    color: #000;
+}
+
+.overlay {
+    background: rgba(255,127,153,0.5);
+}
+
+h1 { color: hsl(348, 100%, 40%); }
+
+:root {
+    --accent: #FF7F99;
+}
+.button {
+    background: var(--accent);
+    color: rgb(180, 246, 203);
+}
+
+header {
+    background: linear-gradient(90deg, #FF7F99 0%, #FFD1DC 100%);
+}
