@@ -3,9 +3,7 @@ const input = document.querySelector("#mensagem");
 const erro = document.querySelector("#erro");
 const lista = document.querySelector("#lista");
 
-
 let mensagens = [];
-
 
 function validarTexto(texto) {
   const txt = texto.trim();
@@ -22,11 +20,40 @@ function validarTexto(texto) {
 function render() {
   lista.innerHTML = "";
 
-  for (const msg of mensagens) {
+  mensagens.forEach((msg, index) => {
+
     const li = document.createElement("li");
-    li.textContent = msg;
+
+    const texto = document.createElement("span");
+    texto.textContent = msg;
+
+    const botaoEditar = document.createElement("button");
+    botaoEditar.textContent = "Editar";
+
+    const botaoExcluir = document.createElement("button");
+    botaoExcluir.textContent = "Excluir";
+
+    botaoEditar.addEventListener("click", () => {
+      const novoTexto = prompt("Edite a tarefa:", msg);
+
+      if (novoTexto !== null && novoTexto.trim() !== "") {
+        mensagens[index] = novoTexto.trim();
+        render();
+      }
+    });
+
+    botaoExcluir.addEventListener("click", () => {
+      mensagens.splice(index, 1);
+      render();
+    });
+
+    li.appendChild(texto);
+    li.appendChild(botaoEditar);
+    li.appendChild(botaoExcluir);
+
     lista.appendChild(li);
-  }
+
+  });
 }
 
 form.addEventListener("submit", (event) => {
