@@ -1,43 +1,111 @@
+/* Importando fonte arredondada do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Centralização geral da página */
 body {
-    background-color: #ffd6e3;
-    color:  #350a0a;
-    font-family: Arial, sans-serif;
+    background-color: #ffd6e3; /* cor de fundo rosa */
+    font-family: 'Poppins', sans-serif; /* fonte arredondada */
+
+    display: flex; /* ativa layout flexível */
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center; /* centraliza verticalmente */
+
+    height: 100vh; /* ocupa a tela inteira */
+    margin: 0; /* remove margem padrão */
 }
 
-h1 {
-    color: #c2185b;
+/* Caixa principal */
+.container {
+    background-color: white; /* fundo branco */
+    padding: 25px; /* espaço interno */
+    border-radius: 15px; /* cantos arredondados */
+    width: 350px; /* largura fixa */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* sombra suave */
+    text-align: center; /* alinha texto no centro */
 }
 
-h2 {
-    color: #c2185b;
+/* Títulos */
+h1, h2 {
+    color: #c2185b; /* cor rosa escuro */
 }
 
+/* Campo de erro */
 #erro {
-    color: red;
+    color: red; /* texto em vermelho */
+    font-size: 14px; /* tamanho menor */
 }
 
+/* Campo de entrada */
+input {
+    padding: 8px; /* espaço interno */
+    border-radius: 8px; /* cantos arredondados */
+    border: 1px solid #ccc; /* borda cinza clara */
+    width: 70%; /* ocupa 70% da largura */
+}
+
+/* Botão de adicionar */
+form button {
+    padding: 8px; /* espaço interno */
+    border-radius: 8px; /* cantos arredondados */
+    border: none; /* sem borda */
+    background-color: #c2185b; /* fundo rosa */
+    color: white; /* texto branco */
+    cursor: pointer; /* mão ao passar */
+}
+
+/* Lista de tarefas */
 ul {
-    padding-left: 20px;
+    padding: 0; /* remove espaço padrão */
+    list-style: none; /* remove pontos da lista */
 }
 
+/* Cada tarefa da lista */
 li {
-    margin: 8px 0;
+    background-color: #fff0f5; /* fundo rosa claro */
+    margin: 8px 0; /* espaço entre tarefas */
+    padding: 8px; /* espaço interno */
+    border-radius: 10px; /* cantos arredondados */
+
+    display: flex; /* layout flexível */
+    align-items: center; /* alinha itens no centro */
+
+    gap: 10px; /* espaço entre itens */
 }
 
+/* Checkbox da tarefa */
+li input[type="checkbox"] {
+    transform: scale(1.2); /* aumenta o tamanho */
+    margin-right: 5px; /* espaço à direita */
+}
+
+/* Texto da tarefa */
+li span {
+    flex: 1; /* ocupa espaço disponível */
+    text-align: left; /* alinha à esquerda */
+}
+
+/* Tarefa marcada como concluída */
+.concluida {
+    text-decoration: line-through; /* risca o texto */
+    opacity: 0.6; /* torna mais transparente */
+}
+
+/* Botões gerais */
 button {
-    border: none;
-    border-radius: 8px;
-    padding: 5px 10px;
-    margin-left: 10px;
-    cursor: pointer;
+    border: none; /* sem borda */
+    border-radius: 8px; /* cantos arredondados */
+    padding: 5px 8px; /* espaço interno */
+    cursor: pointer; /* mão ao passar */
 }
 
+/* Botão de editar */
 button:nth-of-type(1) {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4CAF50; /* fundo verde */
+    color: white; /* texto branco */
 }
 
+/* Botão de excluir */
 button:nth-of-type(2) {
-    background-color: #f44336;
-    color: white;
+    background-color: #f44336; /* fundo vermelho */
+    color: white; /* texto branco */
 }
