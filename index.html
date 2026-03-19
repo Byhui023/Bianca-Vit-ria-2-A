@@ -4,29 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Lista :3</title>
+    <!-- Link para o arquivo CSS que define o estilo da página -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-
-
+    <!-- Container principal da aplicação -->
     <div class="container">
 
+        <!-- Título principal da página -->
         <h1>Lista de Tarefas</h1>
 
+        <!-- Formulário para adicionar novas tarefas -->
         <form id="formMensagem">
             <label for="mensagem">O que você quer adicionar?</label>
+            <!-- Campo de texto onde o usuário digita a tarefa -->
             <input id="mensagem" type="text" />
+            <!-- Botão para enviar o formulário e adicionar a tarefa -->
             <button type="submit">Adicionar</button>
         </form>
 
+        <!-- Parágrafo para exibir mensagens de erro ao usuário -->
         <p id="erro"></p>
 
+        <!-- Título da seção de lista -->
         <h2>Lista</h2>
+        <!-- Lista não ordenada onde as tarefas serão inseridas via JavaScript -->
         <ul id="lista"></ul>
 
     </div>
 
+    <!-- Script JavaScript que controla a lógica da lista -->
     <script src="js/script.js"></script>
 
 </body>

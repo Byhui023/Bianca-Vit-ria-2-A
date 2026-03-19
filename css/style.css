@@ -3,7 +3,7 @@
 
 /* Centralização geral da página */
 body {
-    background-color: #ffd6e3; /* cor de fundo rosa */
+    background-color: #dbffd6; /* cor de fundo rosa */
     font-family: 'Poppins', sans-serif; /* fonte arredondada */
 
     display: flex; /* ativa layout flexível */
@@ -26,12 +26,12 @@ body {
 
 /* Títulos */
 h1, h2 {
-    color: #c2185b; /* cor rosa escuro */
+    color: #1f3a1b; /* cor rosa escuro */
 }
 
 /* Campo de erro */
 #erro {
-    color: red; /* texto em vermelho */
+    color: rgb(58, 78, 53); /* texto em vermelho */
     font-size: 14px; /* tamanho menor */
 }
 
