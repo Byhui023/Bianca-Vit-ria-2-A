@@ -28,14 +28,15 @@ function render() {
 
     const li = document.createElement("li");
 
-    // CHECKBOX (nova funcionalidade)
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = item.concluida;
+    // BOTÃO CONCLUIR/DESFAZER (substitui o checkbox)
+    const botaoConcluir = document.createElement("button");
+    botaoConcluir.textContent = item.concluida ? "Desfazer" : "Concluir";
+    botaoConcluir.classList.add("btn-status");
+    botaoConcluir.style.backgroundColor = item.concluida ? "#ff9800" : "#4CAF50";
+    botaoConcluir.style.color = "white";
 
-    // Quando clicar, muda o status da tarefa
-    checkbox.addEventListener("change", () => {
-      item.concluida = checkbox.checked;
+    botaoConcluir.addEventListener("click", () => {
+      item.concluida = !item.concluida;
       render();
     });
 
@@ -51,12 +52,29 @@ function render() {
     // BOTÃO EDITAR
     const botaoEditar = document.createElement("button");
     botaoEditar.textContent = "Editar";
+    botaoEditar.classList.add("btn-editar");
 
     botaoEditar.addEventListener("click", () => {
-      const novoTexto = prompt("Edite a tarefa:", item.texto);
+      const estaEditando = botaoEditar.textContent === "Salvar";
 
-      if (novoTexto !== null && novoTexto.trim() !== "") {
-        item.texto = novoTexto.trim();
+      if (!estaEditando) {
+        const inputEdicao = document.createElement("input");
+        inputEdicao.type = "text";
+        inputEdicao.value = item.texto;
+        inputEdicao.classList.add("edit-input");
+
+        li.replaceChild(inputEdicao, texto);
+        botaoEditar.textContent = "Salvar";
+        botaoExcluir.style.display = "none";
+        botaoConcluir.style.display = "none";
+      } else {
+        const inputEdicao = li.querySelector(".edit-input");
+        const novoTexto = inputEdicao.value.trim();
+
+        if (novoTexto !== "") {
+          item.texto = novoTexto;
+        }
+
         render();
       }
     });
@@ -64,6 +82,7 @@ function render() {
     // BOTÃO EXCLUIR
     const botaoExcluir = document.createElement("button");
     botaoExcluir.textContent = "Excluir";
+    botaoExcluir.classList.add("btn-excluir");
 
     botaoExcluir.addEventListener("click", () => {
       mensagens.splice(index, 1);
@@ -71,7 +90,7 @@ function render() {
     });
 
     // Montando o item
-    li.appendChild(checkbox);
+    li.appendChild(botaoConcluir);
     li.appendChild(texto);
     li.appendChild(botaoEditar);
     li.appendChild(botaoExcluir);
